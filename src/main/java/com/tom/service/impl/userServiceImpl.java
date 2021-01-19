@@ -18,6 +18,8 @@ import java.util.Random;
 
 public class userServiceImpl implements userService {
 
+    private static final String AccessKeyID =""; //input your own AccessKeyID
+    private static final String AccessSecret=""; //input your own AccessSecret
 
     private userDao userDao=new userDaoImpl();
 
@@ -63,8 +65,8 @@ public class userServiceImpl implements userService {
     @Override
     public String sendMessage(String phone, HttpSession session) {
         DefaultProfile profile = DefaultProfile.getProfile("cn-hangzhou",
-                "LTAI4GGvqPXnjegKTJacdrYr",
-                "3GC8UBpLqFxL98KQhQTrebCwg3VQ4I");
+                AccessKeyID,
+                AccessSecret);
         IAcsClient client = new DefaultAcsClient(profile);
         CommonRequest request = new CommonRequest();
         request.setSysMethod(MethodType.POST);
